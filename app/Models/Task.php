@@ -9,6 +9,11 @@ class Task extends Model
 {
     use HasFactory;
 
+    public function getRouteKeyName()
+    {
+        return 'id';
+    }
+
     public function scopeIncomplete($query)
     {
         return $query->where('completed', 0);

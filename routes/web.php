@@ -12,17 +12,10 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-use App\Models\Task;
+
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/tasks', function () {
-    $tasks = Task::get();
-    return view('tasks.index', compact('tasks'));
-});
-
-Route::get('task/{id}', function ($id){
-    $task = Task::find($id);
-    return view('tasks.task', compact('task'));
-});
+Route::get('/tasks', 'App\Http\Controllers\TasksController@index');
+Route::get('task/{task}', 'App\Http\Controllers\TasksController@detail');
