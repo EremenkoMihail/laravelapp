@@ -59,7 +59,15 @@
 
                             <div class="ml-12">
                                 <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                    Laravel has wonderful, thorough documentation covering every aspect of the framework. Whether you are new to the framework or have previous experience with Laravel, we recommend reading all of the documentation from beginning to end.
+                                    <ul>
+                                        @foreach($tasks as $task)
+                                            <li>
+                                                <a href="/task/{{$task->id}}" class="underline text-gray-900 dark:text-white">
+                                                    {{$task->body}}
+                                                </a>
+                                            </li>
+                                        @endforeach
+                                    </ul>
                                 </div>
                             </div>
                         </div>
